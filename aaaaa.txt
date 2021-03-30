@@ -1,0 +1,14 @@
+---
+- name: Create multiple directories
+  hosts: all
+  tasks:
+   - name: create directories
+     file:
+      name: "{{item.a}}"
+      state: "{{item.b}}"
+     with_items:
+      - {a: abc,b: directory}
+      - {a: abc/123,b: directory}
+      - {a: abc/456,b: directory}
+      - {a: abc/789,b: directory}
+...
